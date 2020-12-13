@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
 
-require './config/environment
+require './config/environment'
 
+DogsAPI.new.get_dog_breeds_url
