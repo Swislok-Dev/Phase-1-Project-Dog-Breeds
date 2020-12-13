@@ -7,11 +7,10 @@ class DogBreeds::Dog
     @id = id
     @name = name
     @@all << self
-    binding.pry
   end
 
   def add_attributes(breeds_array)
-    breeds_array.each do |key, value|
+    breeds_array.map do |key, value|
       self.class.attr_accessor key
       self.send("#{key}=", value)
     end
