@@ -1,7 +1,3 @@
-require 'pry'
-
-require 'awesome_print'
-
 require 'net/http'
 require 'json'
 
@@ -16,7 +12,7 @@ class DogsAPI
     uri = URI(url)
     response = Net::HTTP.get(uri)
     data = JSON.parse(response)
-    binding.pry
+    puts 'This ran!'
   end
 
 end
