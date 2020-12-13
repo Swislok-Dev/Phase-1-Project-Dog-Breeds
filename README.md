@@ -1,2 +1,2 @@
 # Friendly-Doggos
-Application to bring up information about different breeds of dogs.
+Application to bring up information about different dog breeds.
