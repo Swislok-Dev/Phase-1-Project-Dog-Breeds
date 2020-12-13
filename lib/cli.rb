@@ -1,4 +1,4 @@
-class DogBreed::CLI
+class DogBreeds::CLI
   def run
     welcome
     get_data
@@ -13,7 +13,7 @@ class DogBreed::CLI
   end
 
   def get_data
-    DogBreed::API.new.get_dog_breeds_url
+    DogBreeds::API.new.get_dog_breeds
     sleep(0.5)
     puts 'Done.'
     run_again?

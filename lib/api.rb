@@ -1,11 +1,11 @@
-class DogBreed::API
+class DogBreeds::API
   attr_reader :url
 
   def initialize
     @url = 'https://api.thedogapi.com/v1/breeds'
   end
 
-  def get_dog_breeds_url
+  def get_dog_breeds
     puts 'Loading dataset.'
     uri = URI(url)
     response = Net::HTTP.get(uri)

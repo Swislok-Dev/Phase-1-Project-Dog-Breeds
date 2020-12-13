@@ -1,2 +1,2 @@
-module DogBreed
+module DogBreeds
 end
