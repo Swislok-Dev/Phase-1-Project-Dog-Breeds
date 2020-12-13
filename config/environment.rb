@@ -1,6 +1,7 @@
 require 'open-uri'
 require 'net/http'
 require 'json'
+require 'require_all'
 require 'pry'
 
 require 'awesome_print'
