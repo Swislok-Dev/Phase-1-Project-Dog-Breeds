@@ -1,8 +1,9 @@
 class DogBreeds::CLI
-  attr_accessor :id, :name
+  attr_accessor :name
   def run
     # welcome
     list_breeds
+    user_input
     # goodbye
   end
 
@@ -13,19 +14,35 @@ class DogBreeds::CLI
 
   def get_data
     DogBreeds::API.new.get_dog_breeds
-    # run_again?
   end
 
   def list_breeds
-    breeds = get_data
-    breeds.map do |breed|
-      new_dog = DogBreeds::Dog.new(breed['id'], breed['name'])
-      binding.pry
-      new_dog.add_attributes(DogBreeds.remove_elements(breed))
-      binding.pry
+    list = Array.new()
+    breeds_array = get_data
+    breeds_array.each do |breed|
+      dog = DogBreeds::Dog.new(breed['name'])
+      dog.add_attributes(breed)
+      list << dog.name
+      # binding.pry
     end
-    
-    binding.pry
+
+    # This will print out a numbered list
+    list.each.with_index(1) do |name, index|
+      puts "#{index}. #{name}"
+    end
+    # binding.pry
+  end
+
+  def user_input
+    puts "Please select the number to the corresponding breed to view more."
+    input = gets.chomp.to_i
+    if !input.is_a? Integer
+      puts "Please use digits only."
+    elsif input == range(1..172)
+      puts "Valid number"
+    else
+      puts "FIXME: this did something else?"
+    end
   end
 
   def run_again?
