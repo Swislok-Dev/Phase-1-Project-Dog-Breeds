@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
-require './config/environment'
+require 'require_all'
+require_relative '../config/environment'
 
-DogsAPI.new.get_dog_breeds_url
+# DogsAPI.new.get_dog_breeds_url
+
+DogBreed::CLI.new.run
