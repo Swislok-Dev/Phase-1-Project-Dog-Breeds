@@ -7,15 +7,11 @@ class DogBreeds::CLI
 
   def welcome
     puts "Hello, and welcome to this quick reference to various dog breeds."
-    sleep(0.5)
     puts "Please select the number to view more about each breed."
-    sleep(0.5)
   end
 
   def get_data
     DogBreeds::API.new.get_dog_breeds
-    sleep(0.5)
-    puts 'Done.'
     run_again?
   end
 
