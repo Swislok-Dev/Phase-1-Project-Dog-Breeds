@@ -1,3 +1,0 @@
-class DogBreeds::DogBreed
-
-end
