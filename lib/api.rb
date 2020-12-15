@@ -10,7 +10,7 @@ class DogBreeds::API
     response = Net::HTTP.get(uri)
     data = JSON.parse(response)
     data
-
+  end
    # data.each do |dog|
     #  DogBreeds::Breed.new(dog)
     #end
@@ -22,9 +22,9 @@ class DogBreeds::API
     # end
    # puts 'Dataset loaded!'
     #binding.pry
-  end
+  
 
-  def data_we_want
+  def dww
     data = get_dog_breeds
     data.each 
     new_hash = {
