@@ -9,7 +9,7 @@ class DogBreeds::API
     uri = URI(@url)
     response = Net::HTTP.get(uri)
     data = JSON.parse(response)
-    data
+    binding.pry
   end
    # data.each do |dog|
     #  DogBreeds::Breed.new(dog)
@@ -26,7 +26,7 @@ class DogBreeds::API
 
   def dww
     data = get_dog_breeds
-    data.each 
+
     new_hash = {
       "weight" => get_dog_breeds[0]["weight"]["imperial"],
       "height" => get_dog_breeds[1]["height"]["imperial"],
@@ -35,11 +35,7 @@ class DogBreeds::API
     binding.pry
     DogBreeds::Breed.new(new_hash)
   end
-   # binding.pry
-  binding.pry
 
-
-  
 
   # def get_breed_data(url)
   #   uri = URI(url)
