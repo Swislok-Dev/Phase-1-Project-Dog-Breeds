@@ -11,4 +11,4 @@ require_relative '../lib/modules/dog_breeds.rb'    # Used for namespacing
 
 require_relative '../lib/cli.rb'
 require_relative '../lib/api.rb'
-require_relative '../lib/dog_breed.rb'
+require_relative '../lib/breed.rb'
