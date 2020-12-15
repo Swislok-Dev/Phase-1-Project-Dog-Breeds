@@ -5,24 +5,12 @@ class DogBreeds::API
   end
 
   def get_dog_breeds
-    puts 'Loading dataset.'
     uri = URI(@url)
     response = Net::HTTP.get(uri)
     data = JSON.parse(response)
     binding.pry
+    data.each { |dog| DogBreeds::Breed.new(dog) }
   end
-   # data.each do |dog|
-    #  DogBreeds::Breed.new(dog)
-    #end
-
-    # data.collect { |dog| dog = DogBreeds::Breed.new(dog) }
-
-    # data.each do |dog|
-    #   get_breed_data(dog)
-    # end
-   # puts 'Dataset loaded!'
-    #binding.pry
-  
 
   def dww
     data = get_dog_breeds
