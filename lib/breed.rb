@@ -1,18 +1,33 @@
-class DogBreeds::Breed
-  attr_accessor :breed
-  extend DogBreeds
-  @@all = []
+# class DogBreeds::Breed    # Breed class holds :id and :name of breed to be listed for user
+#   attr_accessor :name
+#   attr_reader :dog_id
+#   extend DogBreeds
 
-  def initialize(data)
-    @breed = self
-    data.each do |key, value|
-      self.class.attr_accessor key
-      self.send("#{key}=", value)
-    end
-    @@all << self
-  end 
+#   @@all = []
 
-  def self.all
-    @@all
-  end
-end
+#   def initialize(breed)
+#     @breed = breed
+#     @breeds = {}
+#     @@all << self
+#     binding.pry
+#   end 
+
+#   def add_dog(dog)
+#     dog.breed = self
+#     @breeds << dog
+#   end
+
+#   # def self.create(name)
+#   #   breed = new(name)
+#   #   breed.save
+#   #   breed
+#   # end
+
+#   def self.all
+#     @@all
+#   end
+# end
+
+
+
+

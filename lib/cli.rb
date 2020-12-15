@@ -1,9 +1,8 @@
 class DogBreeds::CLI
   def run
-    welcome
-    get_data
-    # list_data
-    goodbye
+    # welcome
+    list_breeds
+    # goodbye
   end
 
   def welcome
@@ -16,7 +15,9 @@ class DogBreeds::CLI
     # run_again?
   end
 
-  def list_data
+  def list_breeds
+    breeds = get_data
+    binding.pry
   end
 
   def run_again?
