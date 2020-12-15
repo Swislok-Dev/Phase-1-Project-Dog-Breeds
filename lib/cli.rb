@@ -1,4 +1,5 @@
 class DogBreeds::CLI
+  attr_accessor :id, :name
   def run
     # welcome
     list_breeds
@@ -17,6 +18,13 @@ class DogBreeds::CLI
 
   def list_breeds
     breeds = get_data
+    breeds.map do |breed|
+      new_dog = DogBreeds::Dog.new(breed['id'], breed['name'])
+      binding.pry
+      new_dog.add_attributes(DogBreeds.remove_elements(breed))
+      binding.pry
+    end
+    
     binding.pry
   end
 

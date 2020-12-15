@@ -1,7 +1,7 @@
 module DogBreeds
   def self.remove_elements(dataset)
     new_hash = {}
-    dataset.map do |key, value|
+    dataset.each do |key, value|
       next if key == "image" || key == "reference_image_id"
 
       new_hash[key] = value
