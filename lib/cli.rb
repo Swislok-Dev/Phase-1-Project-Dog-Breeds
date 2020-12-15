@@ -2,6 +2,7 @@ class DogBreeds::CLI
   def run
     welcome
     get_data
+    # list_data
     goodbye
   end
 
@@ -12,7 +13,10 @@ class DogBreeds::CLI
 
   def get_data
     DogBreeds::API.new.get_dog_breeds
-    run_again?
+    # run_again?
+  end
+
+  def list_data
   end
 
   def run_again?
