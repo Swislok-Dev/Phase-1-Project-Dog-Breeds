@@ -70,7 +70,7 @@ class DogBreeds::CLI
   end
 
   def run_again?
-    puts 'Would you like to see more?'
+    puts 'Would you like to select a different breed?'
     puts 'Y/N'
     input = ''
     while input != "Y" || input != "N"
