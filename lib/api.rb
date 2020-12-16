@@ -1,4 +1,5 @@
 class DogBreeds::API
+  attr_accessor :name
   extend DogBreeds
 
   def initialize
@@ -9,8 +10,7 @@ class DogBreeds::API
     uri = URI(@url)
     response = Net::HTTP.get(uri)
     data = JSON.parse(response)
-    # binding.pry
-    # data.each { |dog| @dog_id = DogBreeds::Dog.new(DogBreeds.remove_elements(dog)) }
+    # data.each { |dog| new_dog = DogBreeds::Dog.new(new_dog) }
   end
 
 end

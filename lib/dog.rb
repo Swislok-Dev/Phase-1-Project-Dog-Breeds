@@ -1,23 +1,20 @@
 class DogBreeds::Dog
-  attr_accessor :id, :name
+  attr_accessor :name, :id
+ 
 
   @@all = []
 
-  def initialize(name)
-    # @id = id
+  def initialize(name, id)
     @name = name
+    @id = id
     @@all << self
   end
 
-  def add_attributes(breeds_array)
-    breeds_array.map do |key, value|
+  def add_attributes(dataset)
+    dataset.map do |key, value|
       self.class.attr_accessor key
       self.send("#{key}=", value)
     end
-  end
-
-  def self.all
-    self.class.all
   end
 end
 
@@ -28,44 +25,35 @@ end
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-#   attr_accessor :name, :dog_id
-#   attr_reader :breed
-#   extend DogBreeds
-
-#   @@all = []
-
-#   def initialize(data)
-#     data.each do |key, value|
+#   def initialize(name)
+#     name.map do |key, value|
 #       self.class.attr_accessor key
 #       self.send("#{key}=", value)
-
 #     end
-    
-#     @@all << self
-#     binding.pry
+#     self.breed = breed if breed
+#     save
+
 #   end
 
 #   def breed=(breed)
 #     @breed = breed
-#     DogBreeds::Breed.add_dog(breed)
+#     breed.add_breed_data(breed)
 #   end
 
+#   def self.find_by_name(name)
+#     @@all.find { |find| find if find.name == name }
+#   end
+
+#   def save
+#     @@all << self
+#     DogBreeds::Breed.create(self.name)
+#   end
+
+#   def self.breeds
+#     @@breeds
+#   end
 
 #   def self.all
 #     @@all
 #   end
 # end
-
-
-

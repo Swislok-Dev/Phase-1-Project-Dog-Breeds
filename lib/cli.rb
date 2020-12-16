@@ -1,47 +1,43 @@
 class DogBreeds::CLI
   attr_accessor :name
   def run
-    # welcome
-    list_breeds
-    user_input
+    welcome
     # goodbye
   end
 
   def welcome
     puts "Hello, and welcome to this quick reference to various dog breeds."
     puts "Please select the number to view more about each breed."
+    breeds_array = get_data
+    list_breeds(breeds_array)
   end
 
   def get_data
-    DogBreeds::API.new.get_dog_breeds
+    breeds_array = DogBreeds::API.new.get_dog_breeds
+    breeds_array.map do |breed|
+      new_dog = DogBreeds::Dog.new(breed["name"], breed["id"])
+    end
   end
 
-  def list_breeds
+  def list_breeds(array)
     list = Array.new()
-    breeds_array = get_data
-    breeds_array.each do |breed|
-      dog = DogBreeds::Dog.new(breed['name'])
-      dog.add_attributes(breed)
-      list << dog.name
-      # binding.pry
+    array.each_with_index do |element, index|   # This will create list to be printed
+      list << element.name
     end
 
-    # This will print out a numbered list
-    list.each.with_index(1) do |name, index|
+    list.each.with_index(1) do |name, index|    # This will print out a numbered list
       puts "#{index}. #{name}"
     end
-    # binding.pry
-  end
 
-  def user_input
-    puts "Please select the number to the corresponding breed to view more."
-    input = gets.chomp.to_i
-    if !input.is_a? Integer
-      puts "Please use digits only."
-    elsif input == range(1..172)
-      puts "Valid number"
-    else
-      puts "FIXME: this did something else?"
+    puts "\nChoose the number to view more on that breed."
+    input = gets.strip.to_i
+    if !input.is_a? Integer || input < 1 || input > 172
+      list_breeds(array)
+    end
+    list.each.with_index(1) do |stuff, index|
+      if input == index
+        puts stuff
+      end
     end
   end
 
