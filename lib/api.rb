@@ -10,7 +10,6 @@ class DogBreeds::API
     uri = URI(@url)
     response = Net::HTTP.get(uri)
     data = JSON.parse(response)
-    # data.each { |dog| new_dog = DogBreeds::Dog.new(new_dog) }
   end
 
 end
