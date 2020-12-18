@@ -39,7 +39,6 @@ class DogBreeds::CLI
     if input < 1 || input > DogBreeds::Breed.all.count
       system('clear')
       list_breeds
-      
       puts "\nError: Invalid input, please enter a valid choice.".red        # Error message to user that input was not valid
       select_breed 
     end
