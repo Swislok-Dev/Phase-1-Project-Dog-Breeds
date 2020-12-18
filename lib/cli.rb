@@ -10,6 +10,7 @@ class DogBreeds::CLI
     puts "Select a number to view more of that breed.\n".blue
     get_data
     list_breeds
+    select_breed
   end
 
   def get_data
@@ -28,28 +29,17 @@ class DogBreeds::CLI
         puts "#{list_position}. #{breed.name}"
         list_position += 1
       end
-    end
-    select_breed
-  end
-
-  def list_breeds_again
-    list_position = 1
-    puts "Select a number to view more of that breed.\n".blue
-    DogBreeds::Breed.all.each do |breed|
-      if breed.name 
-        puts "#{list_position}. #{breed.name}"
-        list_position += 1
-      end
-    end
+    end  
   end
 
   def select_breed
     puts "\nSelect a number to view more of that breed.\n".blue
     input = gets.strip.to_i 
-    puts "\n"      # Create error for non-number
+    puts "\n"                                                                # Create error for non-number
     if input < 1 || input > DogBreeds::Breed.all.count
       system('clear')
-      list_breeds_again
+      list_breeds
+      
       puts "\nError: Invalid input, please enter a valid choice.".red
       select_breed 
     end
@@ -77,7 +67,7 @@ class DogBreeds::CLI
       input = gets.chomp.upcase
       if input == "Y"
         list_breeds
-        # return
+        select_breed
       elsif input == "N"
         system('clear')
         return goodbye
